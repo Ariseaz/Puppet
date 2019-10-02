@@ -1,0 +1,20 @@
+sudo apt-get update
+sudo apt-get insatll wget
+wget https://apt.puppetlabs.com/puppet-release-bionic.deb
+sudo apt-get install puppetmaster
+apt policy puppetmaster
+sudo systemctl status puppet-master.service
+vim /etc/default/puppet-master
+-- JAVA_ARGS="-Xms512m -Xmx512m"
+sudo systemctl restart puppet-master.service
+
+sudo ufw allow 8140/tcp
+
+//change code
+sudo mkdir -p /etc/puppet/code/environments/production/manifests/
+sudo nano /etc/puppet/code/environments/production/manifests/site.pp
+file {'/tmp/it_works.txt':      # resource type file and filer
+  ensure  =>present,            # make sure it exists
+  mode    =>'0644',             # file permissions
+  content => "It works on ${ipaddress_etho}!\n",  #Print the eth0 IP fact
+  }
