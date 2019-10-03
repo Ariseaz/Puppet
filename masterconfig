@@ -18,3 +18,7 @@ file {'/tmp/it_works.txt':      # resource type file and filer
   mode    =>'0644',             # file permissions
   content => "It works on ${ipaddress_etho}!\n",  #Print the eth0 IP fact
   }
+
+
+//On puppet Master
+sudo puppet cert sign --all
