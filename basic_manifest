@@ -1,0 +1,13 @@
+package{
+    'nginx':
+    ensure=>'installed',
+}
+
+file{
+  '/tmp/hello.txt':
+  ensure=>present,
+  content=>"hello world",
+  mode=>'0644',
+  }
+  
+  
