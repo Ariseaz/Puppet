@@ -16,7 +16,7 @@ sudo nano /etc/puppet/code/environments/production/manifests/site.pp
 file {'/tmp/it_works.txt':      # resource type file and filer
   ensure  =>present,            # make sure it exists
   mode    =>'0644',             # file permissions
-  content => "It works on ${ipaddress_etho}!\n",  #Print the eth0 IP fact
+  content => "It works on ${ipaddress_eth0}!\n",  #Print the eth0 IP fact
   }
 
 
